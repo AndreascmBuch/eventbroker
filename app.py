@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # Routing-mappe til at matche event-typer med modtagende mikroservices
 EVENT_ROUTES = {
-    "new_car_added": "http://localhost:5002/damage_event"  # Damage Service endpoint
+    "new_car_added": "https://skade-demo-b2awcyb4gedxdnhj.northeurope-01.azurewebsites.net/damage"  # Damage Service endpoint
 }
 
 @app.route('/events', methods=['POST'])
