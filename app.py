@@ -31,9 +31,20 @@ def handle_event():
             return jsonify({"error": f"Failed to send event to {service_url}"}), 500
     except Exception as e:
         return jsonify({"error": f"Error forwarding event: {str(e)}"}), 500
+    
+
+
+# test route så vi ikke får 404
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "service": "Event Service",
+        "version": "1.0.0",
+        "description": "A RESTful API for managing Events"
+    })
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5003)
+    app.run()
 
 
 
